@@ -1,0 +1,13 @@
+[Unit]
+Description=RetroPie Software Recorder controller listener
+After=local-fs.target
+ConditionPathExists=/etc/rprec-software.json
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/lib/rprec/rprec-controller.py
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
